@@ -41,6 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
     'Hot': false,
     'Dry Rub': false,
   };
+  void locate(){
+    setState(() {
+      //TODO
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -74,14 +79,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     ),
-                    message: '',
+                    message: 'ListView',
                     textDirection: TextDirection.rtl,
                     location: BannerLocation.topEnd,
                   ),
-                )
-          )
-        )
-      )
+                ),
+
+              ),
+
+
+        ),
+
+      ),
     );
   }
 

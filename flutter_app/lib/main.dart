@@ -18,18 +18,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -40,59 +29,56 @@ class _MyHomePageState extends State<MyHomePage> {
     'KBBQ': false,
     'Hot': false,
     'Dry Rub': false,
+    'Jerk': false,
   };
   void locate(){
-    setState(() {
-      //TODO
-    });
+    //TODO
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Wing Drop',
       home: Scaffold(
-        appBar: AppBar(centerTitle: true, title: Text('Wing Drop'),),
+        appBar: AppBar(centerTitle: true, title: Text('Wing Drop',), backgroundColor: Colors.amber,),
         body: Align(
           alignment: Alignment.center,
-            child: Container(
-                height: MediaQuery.of(context).size.height/2,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.white,
-                child: Center(
-                  child: Banner(
-                    child: Container(
-                      child: Center(child: ListView(
-                        shrinkWrap: true,
-                        padding: const EdgeInsets.all(20.0),
-                        children: values.keys.map((String key){
-                          return new CheckboxListTile(
-                              title: new Text(key),
-                              value: values[key],
-                              onChanged: (bool value){
-                                setState(() {
-                                  values[key] = value;
-                                });
-                          },
-                        );
-                        }).toList(),
-                      ),
-                    ),
-                    ),
-                    message: 'ListView',
-                    textDirection: TextDirection.rtl,
-                    location: BannerLocation.topEnd,
-                  ),
+            child: Column(
+              children: <Widget>[
+                Image.asset('assets/logo.png', width: 300.0, height: 200.0,),
+                Flexible(child: new ListView(
+                  children: values.keys.map((String key) {
+                    return new CheckboxListTile(
+                        activeColor: Colors.amber,
+                        title: new Text(key),
+                        value: values[key],
+                        onChanged: (bool value) {
+                          setState(() {
+                            values[key] = value;
+                    });
+                  },
+                );
+                  }).toList(),
                 ),
-
-              ),
-
-
-        ),
-
+                ),
+                Flexible(child: Align(
+                  child: RaisedButton(
+                  onPressed: locate,
+                  padding:  EdgeInsets.all(8.0),
+                  textColor: Colors.white,
+                  color: Colors.amber,
+                  child: Text("Locate"),
+                ),
+                )
+                )
+        ]
       ),
+    )
+    )
     );
   }
+
 
 }
 

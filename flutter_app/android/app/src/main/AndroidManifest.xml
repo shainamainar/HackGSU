@@ -9,9 +9,9 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="flutter_app"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/chicken.norm.jpg">
         <activity
-            android:name=".MainActivity"
+            android:name=".MyHomePage"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -24,6 +24,10 @@
             <meta-data
                 android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
                 android:value="true" />
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyB77LfxW3UAJO9Iq60TMRTc5VqHXsd4KT0"
+                />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
